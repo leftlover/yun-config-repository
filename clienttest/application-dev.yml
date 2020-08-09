@@ -10,7 +10,7 @@ eureka:
     lease-expiration-duration-in-seconds: 90
     prefer-ip-address: true
 
-
+yunconfig: 太主动反而被敷衍,只好把想念和热情都收敛
 #spring:
 #  security:
 #     basic:
