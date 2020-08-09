@@ -1,0 +1,45 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+jwt:
+  config:
+    key: enn
+    ttl: 30000
+logging:
+  config: classpath:logback.xml
+server:
+  port: 9602
+spring:
+  application:
+    name: eureka-gateway
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+zuul:
+  routes:
+    advisor:
+      path: /tx/advisor/**
+      serviceId: ENN-ADVISOR
+    channel:
+      path: /tx/channel/**
+      serviceId: ENN-CHANNEL
+    market:
+      path: /tx/market/**
+      serviceId: ENN-MARKETING
+    order:
+      path: /tx/order/**
+      serviceId: ENN-ORDER
+    oss:
+      path: /tx/oss/**
+      serviceId: ENN-OSS
+    pms:
+      path: /tx/pms/**
+      serviceId: ENN-PMS-PRODUCT
+    settle:
+      path: /tx/settle/**
+      serviceId: ENN-SETTLE
+    static:
+      path: /tx/xxl/xxl-job-admin/**
+      url: http://10.37.147.172:9615/xxl-job-admin/
