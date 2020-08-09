@@ -1,3 +1,5 @@
+server:
+  port: 9602
 eureka:
   client:
     serviceUrl:
@@ -8,11 +10,9 @@ jwt:
     ttl: 30000
 logging:
   config: classpath:logback.xml
-server:
-  port: 9602
 spring:
   application:
-    name: eureka-gateway
+    name: yun-gateway
   servlet:
     multipart:
       max-file-size: 20MB
@@ -25,21 +25,13 @@ zuul:
     channel:
       path: /tx/channel/**
       serviceId: ENN-CHANNEL
-    market:
-      path: /tx/market/**
-      serviceId: ENN-MARKETING
-    order:
-      path: /tx/order/**
-      serviceId: ENN-ORDER
-    oss:
-      path: /tx/oss/**
-      serviceId: ENN-OSS
-    pms:
-      path: /tx/pms/**
-      serviceId: ENN-PMS-PRODUCT
-    settle:
-      path: /tx/settle/**
-      serviceId: ENN-SETTLE
     static:
       path: /tx/xxl/xxl-job-admin/**
       url: http://10.37.147.172:9615/xxl-job-admin/
+    QY-WECHAT: /qywechat/**
+      #也可以使用更细的粒度 users 这个是唯一的就可以 随便起
+    users:
+      path: /web/**
+      serviceId: SERVICE-LEFT-WEB
+    #    不想向外界暴露除你配置的隐射之外的服务
+    ignored-services: '*'
