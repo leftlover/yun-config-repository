@@ -33,5 +33,7 @@ zuul:
     users:
       path: /web/**
       serviceId: SERVICE-LEFT-WEB
+    CLIENTTEST: /qy/test2/**
+    CLIENTTEST-3: /qy/test3/**
     #    不想向外界暴露除你配置的隐射之外的服务
     ignored-services: '*'
